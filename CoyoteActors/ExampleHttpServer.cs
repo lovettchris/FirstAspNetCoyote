@@ -18,13 +18,13 @@ namespace FirstAspNetCoyote
 
         public void HandlePong(Event e)
         {
-            if (e is PingPongServer.PongEvent pe)
-            {
+            if (e is PingPongServer.PongEvent pe) {
                 string msg = pe.Message;
                 this.FinishRequest(msg);
-                this.SendEvent(pe.Sender, HaltEvent.Instance);
+                this.SendEvent(pe.Server, HaltEvent.Instance);
             }
         }
+
     }
 
 }

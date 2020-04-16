@@ -18,7 +18,7 @@ namespace FirstAspNetCoyote
         public class PongEvent : Event
         {
             public string Message;
-            public ActorId Sender;
+            public ActorId Server;
         }
 
         private void HandlePing(Event e)
@@ -28,7 +28,7 @@ namespace FirstAspNetCoyote
                 this.SendEvent(p.Caller, new PongEvent()
                 {
                     Message = "Received: " + p.Message,
-                    Sender = this.Id
+                    Server = this.Id
                 }); ;
             }
         }
